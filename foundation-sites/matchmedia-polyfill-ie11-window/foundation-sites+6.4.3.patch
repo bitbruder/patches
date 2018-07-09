@@ -1,16 +1,16 @@
 patch-package
 --- a/node_modules/foundation-sites/js/foundation.util.mediaQuery.js
 +++ b/node_modules/foundation-sites/js/foundation.util.mediaQuery.js
-@@ -63,6 +63,8 @@ let matchMedia = window.matchMedia || (function() {
-   }
- })();
+@@ -18,7 +18,7 @@ const defaultQueries = {
  
-+window.matchMedia = matchMedia;
-+
- var MediaQuery = {
-   queries: [],
+ // matchMedia() polyfill - Test a CSS media type/query in JS.
+ // Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license
+-let matchMedia = window.matchMedia || (function() {
++window.matchMedia = window.matchMedia || (function() {
+   'use strict';
  
-@@ -109,7 +111,7 @@ var MediaQuery = {
+   // For browsers that support matchMedium api such as IE 9 and webkit
+@@ -109,7 +109,7 @@ var MediaQuery = {
      var query = this.get(size);
  
      if (query) {
@@ -19,7 +19,7 @@ patch-package
      }
  
      return false;
-@@ -160,7 +162,7 @@ var MediaQuery = {
+@@ -160,7 +160,7 @@ var MediaQuery = {
      for (var i = 0; i < this.queries.length; i++) {
        var query = this.queries[i];
  
